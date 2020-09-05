@@ -1,0 +1,83 @@
+$borderTest: 1px red solid;
+$fontFam: 'Raleway', sans-serif;
+$textColor: #FFFCE8;
+@mixin setMarPad(){
+    margin:0;
+    padding:0;
+}
+@mixin center(){
+    margin:0 auto 0 auto;
+}
+@mixin fullWH(){
+    width:100%;
+    height:100%;
+}
+$media650: 650px;
+html{
+    @include fullWH();
+    display:flex;
+    justify-items: center;
+    align-items: center;
+    body{
+        @include setMarPad();
+        width:100%;
+        height:90vh;
+        @media only screen and (max-width:$media650){
+            height:100%;
+            font-size:12px;
+        }
+        #node{
+            @include fullWH();
+            #quote-box{
+                @include fullWH();
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                background:lightsalmon;
+                font-family: $fontFam;
+                color:$textColor;
+                text-align:center;
+
+                transition:0.5s;
+                h1{
+                    width:fit-content;
+                    max-width:900px;
+                    height:fit-content;
+                }
+                h2{
+                    font-weight:400;
+                }
+                #buttons{
+                    // border:$borderTest;
+                    display:flex;
+                    flex-direction:row;
+                    width:15%;
+                    min-width:250px;
+                    // max-width:450px;
+                    justify-content: space-around;
+
+                    #tweet-quote{
+                        width:fit-content;
+                        height:fit-content;
+                        color:$textColor;
+                        font-size:50px;
+                    }
+                    #new-quote{
+                        border:none;
+                        border-radius:5px;
+                        height:50px;
+
+                        background-color:$textColor;
+                        color:lightsalmon;
+                        font-family: $fontFam;
+                        font-size:15px;
+                        font-weight:bold;
+                        outline-color:lightsalmon;
+                    }
+                }
+            }
+        }
+    }
+}
